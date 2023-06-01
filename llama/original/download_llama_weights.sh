@@ -45,9 +45,9 @@ n_shard="${n_shards[${model_size}]}"
 echo "n_shard: ${n_shard}"
 
 mkdir -p "${output_dir}"
-for s in $(seq -f "0%g" 0 ${n_shard}); do
-  # echo "https://huggingface.co/${repo}/resolve/main/consolidated.${s}.pth"
-  aria2c -x 5 --auto-file-renaming=false -d "${output_dir}" "https://huggingface.co/${repo}/resolve/main/consolidated.${s}.pth" -o "consolidated.${s}.pth"
+for i in $(seq -f "%02g" 0 ${n_shard}); do
+  # echo "https://huggingface.co/${repo}/resolve/main/consolidated.${i}.pth"
+  aria2c -x 5 --auto-file-renaming=false -d "${output_dir}" "https://huggingface.co/${repo}/resolve/main/consolidated.${i}.pth" -o "consolidated.${i}.pth"
 done
 aria2c -x 5 --auto-file-renaming=false -d "${output_dir}" "https://huggingface.co/${repo}/resolve/main/params.json" -o "params.json"
 

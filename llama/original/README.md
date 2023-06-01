@@ -22,10 +22,10 @@ brew install aria2 coreutils
 
 ```bash
 bash download_llama_tokenizer.sh
-bash download_llama_original.sh 7B
-bash download_llama_original.sh 13B
-# bash download_llama_original.sh 30B  # could not find 30B files in huggingface
-bash download_llama_original.sh 65B
+bash download_llama_weights.sh 7B
+bash download_llama_weights.sh 13B
+# bash download_llama_weights.sh 30B  # could not find 30B files in huggingface
+bash download_llama_weights.sh 65B
 ```
 
 ### Checksum

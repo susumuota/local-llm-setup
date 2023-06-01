@@ -22,10 +22,10 @@ brew install aria2 coreutils
 
 ```bash
 bash download_llama_tokenizer.sh
-bash 7B/download_llama_7b.sh
-bash 13B/download_llama_13b.sh
-# bash 30B/download_llama_30b.sh  # could not find 30B files in huggingface
-bash 65B/download_llama_65b.sh
+bash download_llama_7b.sh
+bash download_llama_13b.sh
+# bash download_llama_30b.sh  # could not find 30B files in huggingface
+bash download_llama_65b.sh
 ```
 
 ### Checksum
@@ -50,7 +50,8 @@ Here's links to confirm the MD5 and SHA256 checksum by others.
   - https://github.com/facebookresearch/llama/pull/87#issuecomment-1454265479
   - https://www.reddit.com/r/ChatGPT/comments/11gopy3/comment/jatiptn/?context=1
 
-## Download from Meta's link.
+
+## Download from Meta's link
 
 You should have received an email from Meta with a presigned url to download the weights.
 
@@ -70,7 +71,7 @@ brew install bash coreutils wget
 rehash
 ```
 
-- Edit download.sh.
+- Edit `download.sh`.
 
 ```bash
 PRESIGNED_URL="https://..."   # replace with presigned url from email
@@ -83,7 +84,7 @@ TARGET_FOLDER="/Volumes/LLAMA/download"
 mkdir -p "/Volumes/LLAMA/download"
 ```
 
-- Run download.sh.
+- Run `download.sh`.
 
 ```bash
 bash download.sh

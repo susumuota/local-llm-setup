@@ -22,10 +22,10 @@ brew install aria2 coreutils
 
 ```bash
 bash download_llama_tokenizer.sh
-bash download_llama_7b.sh
-bash download_llama_13b.sh
-# bash download_llama_30b.sh  # could not find 30B files in huggingface
-bash download_llama_65b.sh
+bash download_llama_original.sh 7B
+bash download_llama_original.sh 13B
+# bash download_llama_original.sh 30B  # could not find 30B files in huggingface
+bash download_llama_original.sh 65B
 ```
 
 ### Checksum
@@ -75,13 +75,13 @@ rehash
 
 ```bash
 PRESIGNED_URL="https://..."   # replace with presigned url from email
-TARGET_FOLDER="/Volumes/LLAMA/download"
+TARGET_FOLDER="/Volumes/LLAMA/original"
 ```
 
 - Create the target folder. It should need ~220GB.
 
 ```bash
-mkdir -p "/Volumes/LLAMA/download"
+mkdir -p "/Volumes/LLAMA/original"
 ```
 
 - Run `download.sh`.

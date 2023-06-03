@@ -15,20 +15,14 @@ fi
 
 echo "model_size: ${model_size}"
 
-# TODO
-if [ "${model_size}" = "30B" ]; then
-  echo "30B is not available yet."
-  exit 1
-fi
-
 script_dir=$(cd $(dirname $0); pwd)
 output_dir="${script_dir}/${model_size}"
 
 declare -A repos=(
-  ["7B"]="yahma/llama-7b-hf"
-  ["13B"]="yahma/llama-13b-hf"
-  ["30B"]="huggyllama/llama-30b"  # TODO: no checksum yet
-  ["65B"]="huggyllama/llama-65b"  # TODO: no checksum yet
+  ["7B"]="elinas/llama-7b-hf-transformers-4.29"
+  ["13B"]="elinas/llama-13b-hf-transformers-4.29"
+  ["30B"]="elinas/llama-30b-hf-transformers-4.29"  # TODO: confirm checksum
+  ["65B"]="elinas/llama-65b-hf-transformers-4.29"  # TODO: confirm checksum
 )
 
 repo="${repos[${model_size}]}"

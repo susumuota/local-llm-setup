@@ -23,8 +23,8 @@ I converted LLaMA original weights to HuggingFace's weights and generated checks
 ```bash
 bash download_llama_hf.sh 7B
 bash download_llama_hf.sh 13B
-# bash download_llama_hf.sh 30B  # no checksum yet
-# bash download_llama_hf.sh 65B  # no checksum yet
+bash download_llama_hf.sh 30B
+bash download_llama_hf.sh 65B
 ```
 
 ## Convert LLaMA original weights to HuggingFace's weights.
@@ -42,10 +42,10 @@ bash setup_python_env.sh
 Run convert script.
 
 ```bash
-bash convert_llama_7b_hf.sh 7B
-bash convert_llama_7b_hf.sh 13B
-# bash convert_llama_7b_hf.sh 30B  # need high spec machine
-# bash convert_llama_7b_hf.sh 65B  # need high spec machine
+bash convert_llama_hf.sh 7B
+bash convert_llama_hf.sh 13B
+bash convert_llama_hf.sh 30B  # need high spec machine
+bash convert_llama_hf.sh 65B  # need high spec machine
 ```
 
 ## Test converted weights
@@ -53,6 +53,6 @@ bash convert_llama_7b_hf.sh 13B
 ```bash
 bash test_llama_hf.sh 7B
 bash test_llama_hf.sh 13B
-# bash test_llama_hf.sh 30B  # need high spec machine
-# bash test_llama_hf.sh 65B  # need high spec machine
+bash test_llama_hf.sh 30B  # need high spec machine
+bash test_llama_hf.sh 65B  # need high spec machine
 ```

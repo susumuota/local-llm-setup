@@ -1,0 +1,6 @@
+779942ebb16708036af3626823520ad296c3b78c42d5a1dababbdfc2dc496a09  config.json
+ec2f2d1f0dfb73b72a4cbac7fa121abbe04c37ab327125a38248f930c0f09ddf  llama-7b.ggmlv3.q4_0.bin
+49502a30eb9c1cc36ed9a00686c4f4f5e9942dd095b5a8c4f7fcd8e8f9d41a97  llama-7b.ggmlv3.q4_1.bin
+c399ae266de0f87a4677a913fd20cda35480af0f1a60ece6cac87e1672a8a9ee  llama-7b.ggmlv3.q5_0.bin
+ff23829c94be4da3ea8d51d00189fee162ad33b42e8eb0732e87c6e004d2cc90  llama-7b.ggmlv3.q5_1.bin
+1eaae5a0e3d044c6f535e91a493dd49073d63f293401df0340d22de2587cdf8a  llama-7b.ggmlv3.q8_0.bin

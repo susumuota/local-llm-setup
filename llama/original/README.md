@@ -46,6 +46,7 @@ Here's links to confirm the MD5 and SHA256 checksum by others.
   - https://huggingface.co/TheBloke/llama-13b/blob/main/checklist.chk
   - https://huggingface.co/datasets/nyanko7/LLaMA-65B/blob/main/checklist.chk
 - SHA256
+  - https://github.com/ggerganov/llama.cpp/blob/master/SHA256SUMS
   - https://github.com/ggerganov/llama.cpp/issues/238#issuecomment-1476679176
   - https://github.com/facebookresearch/llama/pull/87#issuecomment-1454265479
   - https://www.reddit.com/r/ChatGPT/comments/11gopy3/comment/jatiptn/?context=1

@@ -1,0 +1,6 @@
+eace45a84afd2bf8c112661f5837a00d  config.json
+700abc14c124e9352f2fc7288f104998  llama-65b.ggmlv3.q4_0.bin
+a90b2866eda79e03f0563ab95b9266f9  llama-65b.ggmlv3.q4_1.bin
+cbe9be8db786f20eb110c56ad1794700  llama-65b.ggmlv3.q5_0.bin
+1cdd00e9fb92b74226da2f5e4f2f3ce4  llama-65b.ggmlv3.q5_1.bin
+4ad0005ace19e05592a0c955c9c1bb4f  llama-65b.ggmlv3.q8_0.bin

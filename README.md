@@ -2,10 +2,13 @@
 
 ## LLaMA
 
-### Original weights
+- [original weights](llama/original/README.md)
+- [hf weights](llama/hf/README.md)
+- [GGML weights](llama/ggml/README.md)
 
-See [llama/original/README.md](llama/original/README.md).
+## Vicuna
 
-### HuggingFace's weights
+## Wizard Vicuna
 
-See [llama/hf/README.md](llama/hf/README.md).
+## Falcon
+

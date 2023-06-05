@@ -31,6 +31,16 @@ I confirmed `md5sum -c vicuna_7b_hf.md5` and `sha256sum -c vicuna_7b_hf.sha256` 
 
 Also, `13B` checksum files are confirmed as same as `7B`.
 
+Here's links to confirm the SHA256 checksum by others.
+
+- 7B
+  - https://huggingface.co/TheBloke/vicuna-7B-1.1-HF/blob/main/pytorch_model-00001-of-00002.bin
+  - https://huggingface.co/TheBloke/vicuna-7B-1.1-HF/blob/main/pytorch_model-00002-of-00002.bin
+- 13B
+  - https://huggingface.co/TheBloke/vicuna-13B-1.1-HF/blob/main/pytorch_model-00001-of-00003.bin
+  - https://huggingface.co/TheBloke/vicuna-13B-1.1-HF/blob/main/pytorch_model-00002-of-00003.bin
+  - https://huggingface.co/TheBloke/vicuna-13B-1.1-HF/blob/main/pytorch_model-00003-of-00003.bin
+
 ## Convert LLaMA HuggingFace weights to Vicuna HuggingFace weights
 
 You can convert LLaMA HuggingFace weights to Vicuna HuggingFace weights by `fastchat` module.

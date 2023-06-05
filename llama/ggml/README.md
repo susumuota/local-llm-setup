@@ -35,11 +35,15 @@ Also, `13B`, `30B` and `65B` checksum files are confirmed as same as `7B`.
 
 Here's links to confirm the SHA256 checksum by others.
 
-- https://github.com/ggerganov/llama.cpp/blob/master/SHA256SUMS
-- https://huggingface.co/TheBloke/LLaMa-7B-GGML/tree/main
-- https://huggingface.co/TheBloke/LLaMa-13B-GGML/tree/main
-- https://huggingface.co/TheBloke/LLaMa-30B-GGML/tree/main
-
+- fp16
+  - https://github.com/ggerganov/llama.cpp/blob/master/SHA256SUMS
+- q4_0, q4_1, q5_0, q5_1, q8_0
+  - https://huggingface.co/TheBloke/LLaMa-7B-GGML/blob/main/llama-7b.ggmlv3.q4_0.bin
+  - https://huggingface.co/TheBloke/LLaMa-7B-GGML/blob/main/llama-7b.ggmlv3.q4_1.bin
+  - https://huggingface.co/TheBloke/LLaMa-7B-GGML/blob/main/llama-7b.ggmlv3.q5_0.bin
+  - https://huggingface.co/TheBloke/LLaMa-7B-GGML/blob/main/llama-7b.ggmlv3.q5_1.bin
+  - https://huggingface.co/TheBloke/LLaMa-7B-GGML/blob/main/llama-7b.ggmlv3.q8_0.bin
+  - Change `7B` to `13B` or `30B` to confirm other models. But there are no `65B` files.
 
 ## Convert LLaMA original weights to GGML weights
 

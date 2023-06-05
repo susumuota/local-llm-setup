@@ -16,7 +16,7 @@ For macOS,
 brew install aria2 coreutils
 ```
 
-## Download LLaMA HuggingFace's weights.
+## Download LLaMA HuggingFace format weights
 
 ```bash
 bash download_llama_hf.sh 7B
@@ -27,7 +27,7 @@ bash download_llama_hf.sh 65B
 
 ## Checksum
 
-I converted LLaMA original weights to HuggingFace's weights and generated checksum files.
+I converted LLaMA original weights to HuggingFace weights and generated checksum files.
 
 I confirmed `md5sum -c llama_7b_hf.md5` and `sha256sum -c llama_7b_hf.sha256` are passed with converted files.
 
@@ -35,9 +35,9 @@ Also, `13B` checksum files are confirmed as same as `7B`.
 
 But `30B` and `65B` checksum files are not confirmed yet.
 
-## Convert LLaMA original weights to HuggingFace's weights.
+## Convert LLaMA original weights to HuggingFace weights
 
-You can convert LLaMA original weights to HuggingFace's weights by `convert_llama_original_to_hf.py`.
+You can convert LLaMA original weights to HuggingFace weights by `convert_llama_original_to_hf.py`.
 
 - https://huggingface.co/docs/transformers/main/model_doc/llama
 

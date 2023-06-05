@@ -20,7 +20,7 @@ qs=("q4_0" "q4_1" "q5_0" "q5_1" "q8_0")
 script_dir=$(cd $(dirname $0); pwd)
 
 input_dir="${script_dir}/../original/${model_size}"
-output_dir="${script_dir}/ggml/${model_size}"
+output_dir="${script_dir}/converted/${model_size}"
 
 mkdir -p "${output_dir}"
 source "${script_dir}/venv/bin/activate"

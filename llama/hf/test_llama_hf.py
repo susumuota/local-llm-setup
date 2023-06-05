@@ -5,8 +5,7 @@ import sys
 import torch
 from transformers import LlamaForCausalLM, LlamaTokenizer
 
-model_size = sys.argv[1] or "7B"
-path = f"./{model_size}"
+path = sys.argv[1] or "7B"
 print("path:", path)
 
 torch.set_num_threads(8)
@@ -27,4 +26,4 @@ generate_ids = model.generate(inputs.input_ids, max_length=30)
 print("generate_ids:", generate_ids)
 
 decoded = tokenizer.batch_decode(generate_ids, skip_special_tokens=True, clean_up_tokenization_spaces=False)[0]
-print(decoded)
+print("decoded:", decoded)

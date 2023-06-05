@@ -18,7 +18,7 @@ echo "model_size: ${model_size}"
 script_dir=$(cd $(dirname $0); pwd)
 
 input_dir="${script_dir}/../original"
-output_dir="${script_dir}/hf/${model_size}"
+output_dir="${script_dir}/converted/${model_size}"
 
 mkdir -p "${output_dir}"
 source "${script_dir}/venv/bin/activate"

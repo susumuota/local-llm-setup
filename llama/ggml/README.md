@@ -16,7 +16,7 @@ For macOS,
 brew install aria2 coreutils
 ```
 
-## Download LLaMA GGML weights.
+## Download LLaMA GGML weights
 
 ```bash
 bash download_llama_ggml.sh 7B
@@ -41,7 +41,7 @@ Here's links to confirm the SHA256 checksum by others.
 - https://huggingface.co/TheBloke/LLaMa-30B-GGML/tree/main
 
 
-## Convert LLaMA original weights to GGML weights.
+## Convert LLaMA original weights to GGML weights
 
 You can convert LLaMA original weights to GGML weights by `convert.py`.
 
@@ -66,5 +66,5 @@ bash convert_llama_ggml.sh 65B
 
 ```bash
 cd llama.cpp
-./main -m ./7B/llama-7b.ggmlv3.q4_0.bin -n 128 -t 8
+./main -m ../7B/llama-7b.ggmlv3.q4_0.bin -n 128 -t 8
 ```

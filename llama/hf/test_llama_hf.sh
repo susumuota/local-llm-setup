@@ -1,21 +1,21 @@
 #!/bin/bash
 
-# ask model_size if not specified
+# ask model_path if not specified
 if [ -z "$1" ]; then
-  read -p "Enter model_size (7B, 13B, 30B or 65B): " model_size
+  read -p "Enter model_path: " model_path
 else
-  model_size=$1
+  model_path=$1
 fi
 
-# check model_size
-if [ -z "${model_size}" ]; then
-  echo "Usage: $0 <model_size>"
+# check model_path
+if [ -z "${model_path}" ]; then
+  echo "Usage: $0 <model_path>"
   exit 1
 fi
 
-echo "model_size: ${model_size}"
+echo "model_path: ${model_path}"
 
 script_dir=$(cd $(dirname $0); pwd)
 
 source "${script_dir}/venv/bin/activate"
-python "${script_dir}/test_llama_hf.py" "${model_size}"
+python "${script_dir}/test_llama_hf.py" "${model_path}"

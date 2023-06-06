@@ -9,6 +9,7 @@
 ## Vicuna
 
 - [HuggingFace weights](vicuna/hf)
+- [GGML weights](vicuna/ggml)
 
 ## Wizard Vicuna
 

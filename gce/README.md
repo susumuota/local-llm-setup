@@ -69,10 +69,6 @@ Create an instance specifying the machine type, OS, disk, GPU, etc.
 
 - instance without GPU
 
-![image](https://github.com/susumuota/local-llm-setup/assets/1632335/be9f4954-7b30-466f-bcac-8fd1a8717b98)
-
-![image](https://github.com/susumuota/local-llm-setup/assets/1632335/e2465395-810b-4e56-ba2e-c4af9aae5398)
-
 ```sh
 export INSTANCE_NAME="instance-1"
 export MACHINE_TYPE="c2-standard-16"   # vCPU: 16, RAM: 64GB. need to increase quota `c2_cpus` from `8` to `16`.
@@ -95,6 +91,10 @@ gcloud compute instances list --project=$PROJECT_ID
 # gcloud compute instances delete $INSTANCE_NAME --project=$PROJECT_ID --zone=$ZONE
 # unset INSTANCE_NAME MACHINE_TYPE SCOPES
 ```
+
+![image](https://github.com/susumuota/local-llm-setup/assets/1632335/be9f4954-7b30-466f-bcac-8fd1a8717b98)
+
+![image](https://github.com/susumuota/local-llm-setup/assets/1632335/e2465395-810b-4e56-ba2e-c4af9aae5398)
 
 - instance with GPU
 

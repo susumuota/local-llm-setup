@@ -27,7 +27,7 @@ if [ -z "${output_dir}" ]; then
 fi
 
 checksum=$(curl -s "https://huggingface.co/${user}/${repo}/raw/${branch}/${file}" | sed -nE "s/^oid (.+):(.+)$/\2/ p")
-echo "${checksum}  ${file}" >> "${output_dir}/${file}.sha256"
+echo "${checksum}  ${file}" > "${output_dir}/${file}.sha256"
 echo "checksum: ${checksum}"
 
 mkdir -p "${output_dir}"

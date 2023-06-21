@@ -1,3 +1,7 @@
 .vscode
+ctransformers
+ggml
+koboldcpp
 llama.cpp
+text-generation-webui
 venv

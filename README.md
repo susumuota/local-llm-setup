@@ -18,7 +18,7 @@ cd llama.cpp
 aria2c -x 5 "https://huggingface.co/TheBloke/Wizard-Vicuna-13B-Uncensored-GGML/resolve/main/Wizard-Vicuna-13B-Uncensored.ggmlv3.q6_K.bin" -d "models" -o "Wizard-Vicuna-13B-Uncensored.ggmlv3.q6_K.bin"
 make
 ./main -t 8 -c 2048 -i --color -e \
-  -m "../Wizard-Vicuna-13B-Uncensored.ggmlv3.q6_K.bin" \
+  -m "models/Wizard-Vicuna-13B-Uncensored.ggmlv3.q6_K.bin" \
   -r "USER:" --in-prefix " " --in-suffix "ASSISTANT:" \
   -p "A chat between a curious user and an artificial intelligence assistant. The assistant gives helpful, detailed, and polite answers to the user's questions.\n\nUSER: Hello\nASSISTANT: Hi\nUSER: How are you?\nASSISTANT:"
 ```

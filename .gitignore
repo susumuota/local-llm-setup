@@ -1,6 +1,7 @@
 *.bin
 .vscode
 ctransformers
+ggllm.cpp
 ggml
 koboldcpp
 llama.cpp

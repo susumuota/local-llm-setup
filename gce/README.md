@@ -79,6 +79,9 @@ export DISK_NAME="disk-1"
 export DISK_SIZE="100GB"
 export DISK_TYPE="pd-ssd"
 export PROVISIONING_MODEL="SPOT"      # or "STANDARD"
+```
+
+```sh
 gcloud compute instances create $INSTANCE_NAME \
   --project=$PROJECT_ID \
   --zone=$ZONE \
@@ -86,10 +89,6 @@ gcloud compute instances create $INSTANCE_NAME \
   --scopes=$SCOPES \
   --create-disk=boot=yes,image-project=${IMAGE_PROJECT},image-family=${IMAGE_FAMILY},name=${DISK_NAME},size=${DISK_SIZE},type=${DISK_TYPE} \
   --provisioning-model=$PROVISIONING_MODEL
-gcloud compute instances describe $INSTANCE_NAME --project=$PROJECT_ID --zone=$ZONE
-gcloud compute instances list --project=$PROJECT_ID
-# gcloud compute instances delete $INSTANCE_NAME --project=$PROJECT_ID --zone=$ZONE
-# unset INSTANCE_NAME MACHINE_TYPE SCOPES
 ```
 
 ![image](https://github.com/susumuota/local-llm-setup/assets/1632335/be9f4954-7b30-466f-bcac-8fd1a8717b98)
@@ -109,6 +108,9 @@ export DISK_SIZE="100GB"
 export DISK_TYPE="pd-ssd"
 export ACCELERATOR="nvidia-l4"        # for NVIDIA L4
 export PROVISIONING_MODEL="SPOT"      # or "STANDARD"
+```
+
+```sh
 gcloud compute instances create $INSTANCE_NAME \
   --project=$PROJECT_ID \
   --zone=$ZONE \
@@ -117,10 +119,12 @@ gcloud compute instances create $INSTANCE_NAME \
   --create-disk=boot=yes,image-project=${IMAGE_PROJECT},image-family=${IMAGE_FAMILY},name=${DISK_NAME},size=${DISK_SIZE},type=${DISK_TYPE} \
   --accelerator=count=1,type=${ACCELERATOR} \
   --provisioning-model=$PROVISIONING_MODEL
-gcloud compute instances describe $INSTANCE_NAME --project=$PROJECT_ID --zone=$ZONE
-gcloud compute instances list --project=$PROJECT_ID
+```
+
+```sh
+# gcloud compute instances describe $INSTANCE_NAME --project=$PROJECT_ID --zone=$ZONE
+# gcloud compute instances list --project=$PROJECT_ID
 # gcloud compute instances delete $INSTANCE_NAME --project=$PROJECT_ID --zone=$ZONE
-# unset INSTANCE_NAME MACHINE_TYPE SCOPES
 ```
 
 See the reference for more options.

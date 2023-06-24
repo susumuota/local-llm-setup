@@ -153,7 +153,7 @@ make
 - Website
   - https://falconllm.tii.ae/
 - Repository
-  - https://huggingface.co/datasets/tiiuae/falcon-
+  - https://huggingface.co/datasets/tiiuae/falcon-refinedweb
   - https://github.com/cmp-nct/ggllm.cpp
 - Weights
   - https://huggingface.co/tiiuae
@@ -162,7 +162,27 @@ make
 
 Falcon is not llama format so that llama.cpp doesn't work. You need to build [ggllm.cpp](https://github.com/cmp-nct/ggllm.cpp), a fork of llama.cpp.
 
+#### falcon-40b-instruct
+
+- 40B model should work with 64GB RAM machine (48GB RAM might be enough but not tested). See [gce](gce) for how to setup 64GB RAM machine on Google Compute Engine.
+
 > **Note: I don't know why, but `falcon_main` doesn't work with `-r` option. So it seems impossible to use interactive mode `-i` at the moment.**
+
+```sh
+bash download_from_hf.sh https://huggingface.co/TheBloke/falcon-40b-instruct-GGML/resolve/main/falcon40b-instruct.ggmlv3.q6_K.bin
+git clone https://github.com/cmp-nct/ggllm.cpp.git  # not llama.cpp
+cd ggllm.cpp
+rm -rf build; mkdir build; cd build
+cmake -DLLAMA_CUBLAS=0 ..  # if you don't have CUDA
+cmake --build . --config Release
+./bin/falcon_main -t 16 -c 2048 --color -e \
+  -m "../../falcon40b-instruct.ggmlv3.q6_K.bin" \
+  -p "A chat between a curious user and an artificial intelligence assistant. The assistant gives helpful, detailed, and polite answers to the user's questions.\n\n### Human: Hello\n### Assistant: Hi\n### Human: How are you?\n### Assistant: I'm fine. Thank you.\n### Human: I want you to act as a storyteller. Tell me a science fiction story which is inspired by the Fermi Paradox and the Great Filter Hypothesis.\n### Assistant:"
+```
+
+#### falcon-7b-instruct
+
+- 7B model should work with laptop machine with 16GB RAM.
 
 > **Note: I have to add `-b 16` to avoid memory allocation error.**
 

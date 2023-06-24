@@ -19,7 +19,6 @@ export PROJECT_ID="local-llm-setup-2"
 gcloud projects create $PROJECT_ID
 gcloud projects list
 # gcloud projects delete $PROJECT_ID
-# unset PROJECT_ID
 ```
 
 ## Enable billing
@@ -58,7 +57,6 @@ export REGION="us-central1"
 export ZONE="us-central1-a"
 gcloud services enable compute.googleapis.com --project=$PROJECT_ID
 # gcloud services disable compute.googleapis.com --project=$PROJECT_ID
-# unset REGION ZONE
 ```
 
 ## Create an instance
@@ -70,6 +68,8 @@ Create an instance specifying the machine type, OS, disk, GPU, etc.
 - instance without GPU
 
 ```sh
+export PROJECT_ID="local-llm-setup-2"
+export ZONE="us-central1-a"
 export INSTANCE_NAME="instance-1"
 export MACHINE_TYPE="c2-standard-16"   # vCPU: 16, RAM: 64GB. need to increase quota `c2_cpus` from `8` to `16`.
 export SCOPES="default,storage-full"
@@ -98,6 +98,8 @@ gcloud compute instances create $INSTANCE_NAME \
 - instance with GPU
 
 ```sh
+export PROJECT_ID="local-llm-setup-2"
+export ZONE="us-central1-a"
 export INSTANCE_NAME="instance-1"
 export MACHINE_TYPE="g2-standard-4"   # for NVIDIA L4
 export SCOPES="default,storage-full"
@@ -159,22 +161,60 @@ See the reference for more options. e.g. port forwarding.
 
 ## Run LLM without GPU
 
+```sh
+sudo apt-get update && sudo apt-get install -y aria2 build-essential git cmake
+git clone https://github.com/susumuota/local-llm-setup.git
+cd local-llm-setup
+bash gce/create_dotfiles.sh
+screen
+```
+
 - guanaco-65B (best 65B model)
 
+This works ~ 2 tokens per second.
+
 ```sh
-sudo apt-get update && sudo apt-get install -y aria2 build-essential git
-git clone https://github.com/ggerganov/llama.cpp.git
+bash download_from_hf.sh https://huggingface.co/TheBloke/guanaco-65B-GGML/blob/main/guanaco-65B.ggmlv3.q5_K_M.bin
+git clone https://github.com/ggerganov/llama.cpp
 cd llama.cpp
 make
-aria2c -x 5 "https://huggingface.co/TheBloke/guanaco-65B-GGML/resolve/main/guanaco-65B.ggmlv3.q5_K_M.bin" -d "models" -o "guanaco-65B.ggmlv3.q5_K_M.bin"
-./main -t 16 -m "models/guanaco-65B.ggmlv3.q5_K_M.bin" --color -c 2048 -i -r "### Human: " -e -p "A chat between a curious user and an artificial intelligence assistant. The assistant gives helpful, detailed, and polite answers to the user's questions.\n\n### Human: Hello\n### Assistant: Hi\n### Human: How are you?\n### Assistant:"
+./main -t 16 -c 2048 -i --color -e \
+  -m "../guanaco-65B.ggmlv3.q5_K_M.bin" \
+  -r "### Human:" --in-prefix " " --in-suffix "### Assistant:" \
+  -p "A chat between a curious user and an artificial intelligence assistant. The assistant gives helpful, detailed, and polite answers to the user's questions.\n\n### Human: Hello\n### Assistant: Hi\n### Human: How are you?\n### Assistant:"
+```
+
+- falcon-40b-instruct (Overall best model, 40B)
+
+This works ~ 3 tokens per second.
+
+> **Note: I don't know why, but `falcon_main` doesn't work with `-r` option. So it seems impossible to use interactive mode `-i` at the moment.**
+
+```sh
+bash download_from_hf.sh https://huggingface.co/TheBloke/falcon-40b-instruct-GGML/resolve/main/falcon40b-instruct.ggmlv3.q6_K.bin
+git clone https://github.com/cmp-nct/ggllm.cpp.git  # not llama.cpp
+cd ggllm.cpp
+rm -rf build; mkdir build; cd build
+cmake -DLLAMA_CUBLAS=0 ..  # if you don't have CUDA
+cmake --build . --config Release
+./bin/falcon_main -t 16 -c 2048 --color -e \
+  -m "../../falcon40b-instruct.ggmlv3.q6_K.bin" \
+  -p "A chat between a curious user and an artificial intelligence assistant. The assistant gives helpful, detailed, and polite answers to the user's questions.\n\n### Human: Hello\n### Assistant: Hi\n### Human: How are you?\n### Assistant: I'm fine. Thank you.\n### Human: I want you to act as a storyteller. Tell me a science fiction story which is inspired by the Fermi Paradox and the Great Filter Hypothesis.\n### Assistant:"
 ```
 
 - 30b-Lazarus (best 30B model)
 
+This works ~ 4 tokens per second.
+
 ```sh
-aria2c -x 5 "https://huggingface.co/TheBloke/30B-Lazarus-GGML/resolve/main/30b-Lazarus.ggmlv3.q6_K.bin" -d "models" -o "30b-Lazarus.ggmlv3.q6_K.bin"
-./main -t 16 -m "models/30b-Lazarus.ggmlv3.q6_K.bin" --color -c 2048 -i -r "### Human: " -e -p "A chat between a curious user and an artificial intelligence assistant. The assistant gives helpful, detailed, and polite answers to the user's questions.\n\n### Human: Hello\n### Assistant: Hi\n### Human: How are you?\n### Assistant:"
+bash download_from_hf.sh https://huggingface.co/TheBloke/30B-Lazarus-GGML/blob/main/30b-Lazarus.ggmlv3.q6_K.bin
+git clone https://github.com/ggerganov/llama.cpp
+cd llama.cpp
+make
+./main -t 16 -c 2048 -i --color -e \
+  -m "../30b-Lazarus.ggmlv3.q6_K.bin" \
+  -r "### Human:" --in-prefix " " --in-suffix "### Assistant:" \
+  -p "A chat between a curious user and an artificial intelligence assistant. The assistant gives helpful, detailed, and polite answers to the user's questions.\n\n### Human: Hello\n### Assistant: Hi\n### Human: How are you?\n### Assistant:"
 ```
 
 ## Run LLM with GPU

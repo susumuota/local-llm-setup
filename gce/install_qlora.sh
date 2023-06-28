@@ -8,7 +8,7 @@ sudo apt-get update && sudo apt-get install -y --no-install-recommends \
   python3-venv \
   && sudo rm -rf /var/lib/apt/lists/*
 
-git clone https://github.com/artidoro/qlora.git
+git clone https://github.com/susumuota/qlora.git
 cd qlora
 
 python -m venv venv

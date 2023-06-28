@@ -152,7 +152,7 @@ gcloud compute ssh $INSTANCE_NAME --project=$PROJECT_ID --zone=$ZONE
 For port forwarding.
 
 ```sh
-gcloud compute ssh $INSTANCE_NAME --project=$PROJECT_ID --zone=$ZONE -- -L 7860:localhost:7860
+gcloud compute ssh $INSTANCE_NAME --project=$PROJECT_ID --zone=$ZONE -- -L 8888:localhost:8888
 ```
 
 See the reference for more options. e.g. port forwarding.
@@ -164,9 +164,9 @@ See the reference for more options. e.g. port forwarding.
 ```sh
 sudo apt-get update && sudo apt-get install -y aria2 build-essential git cmake
 git clone https://github.com/susumuota/local-llm-setup.git
-cd local-llm-setup
-bash gce/create_dotfiles.sh
+bash local-llm-setup/gce/create_dotfiles.sh
 screen
+cd local-llm-setup
 ```
 
 - guanaco-65B (best 65B model)
@@ -219,8 +219,23 @@ make
 
 ## Run LLM with GPU
 
-TODO
+### Install CUDA drivers
 
+```sh
+git clone https://github.com/susumuota/local-llm-setup.git
+bash local-llm-setup/gce/create_dotfiles.sh
+bash local-llm-setup/gce/install_cuda_drivers.sh
+sudo reboot
+# and ssh again
+```
+
+Start `screen`. Sometimes ssh connection gets lost. You can recover session with `screen -r`.
+
+```sh
+screen
+```
+
+TODO
 
 ## Delete the instance
 

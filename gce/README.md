@@ -101,7 +101,7 @@ gcloud compute instances create $INSTANCE_NAME \
 export PROJECT_ID="local-llm-setup-2"
 export ZONE="us-central1-a"
 export INSTANCE_NAME="instance-1"
-export MACHINE_TYPE="g2-standard-4"   # for NVIDIA L4
+export MACHINE_TYPE="g2-standard-8"   # for NVIDIA L4
 export SCOPES="default,storage-full"
 export IMAGE_PROJECT="ubuntu-os-cloud"
 export IMAGE_FAMILY="ubuntu-2204-lts"

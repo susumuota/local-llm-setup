@@ -1,6 +1,7 @@
 *.bin
 .vscode
 ctransformers
+FastChat
 ggllm.cpp
 ggml
 koboldcpp
